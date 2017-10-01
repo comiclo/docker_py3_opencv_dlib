@@ -3,7 +3,7 @@ MAINTAINER narumi
 # RUN sed -i 's/archive/tw.archive/g' /etc/apt/sources.list
 RUN apt-get update &&\
     apt-get upgrade &&\
-    apt-get install -y \
+    apt-get install -y\
           python3-pip\
           python3-dev\
           python3-numpy\
@@ -22,7 +22,9 @@ RUN apt-get update &&\
           libtiff-dev\
           libjasper-dev\
           libdc1394-22-dev\
-          libboost-all-dev
+          libboost-all-dev\
+          &&\
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /tmp
 RUN pip3 install -U pip &&\
